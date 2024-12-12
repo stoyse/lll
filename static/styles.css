@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');
+
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  background: #333;
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+  min-height: 100svh;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'AOS Icons', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif, system-ui;
+  margin: 0;
+  padding: 2.5rem;
+  color: #fff;
+}
+
+body::before {
+  --line: color-mix(in lch, canvasText 25%, #fff);
+  --size: 40px;
+  content: '';
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background: linear-gradient(
+        90deg,
+        var(--line) 1px,
+        transparent 1px var(--size)
+      )
+      0 -5vmin / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 0 -5vmin / var(
+        --size
+      ) var(--size);
+  mask: linear-gradient(-15deg, transparent 60%, white);
+  top: 0;
+  z-index: -1;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  flex-wrap: wrap;
+  color: color-mix(in lch, canvasText 50%, canvas);
+  transition: color 0.2s;
+  touch-action: none;
+}
+
+
+
+
+li {
+  display: grid;
+  place-items: center;
+  font-weight: 400;
+}
+
+li a {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+:is(a, button) {
+  outline-color: color-mix(in lch, canvasText, transparent 50%);
+}
+
+a:is(:focus-visible, :hover),
+ul:has(a:target:is(:focus-visible, :hover))::after {
+  color: canvasText;
+}
+
+ul:has(a:is(:focus-visible, :hover)) {
+  --intent: 1;
+}
+
+ul::before,
+ul::after {
+  --transition: 0.18s;
+  content: '';
+  position: fixed;
+  pointer-events: none;
+  opacity: var(--intent, 0);
+  z-index: -1;
+  border-radius: 6px;
+  background: color-mix(in lch, canvasText, canvas 85%);
+  transition: top var(--transition), left var(--transition),
+    height var(--transition), opacity var(--transition), color var(--transition),
+    width var(--transition);
+  transition-timing-function: linear(
+    0 0%,
+    0.2342 12.49%,
+    0.4374 24.99%,
+    0.6093 37.49%,
+    0.6835 43.74%,
+    0.7499 49.99%,
+    0.8086 56.25%,
+    0.8593 62.5%,
+    0.9023 68.75%,
+    0.9375 75%,
+    0.9648 81.25%,
+    0.9844 87.5%,
+    0.9961 93.75%,
+    1 100%
+  );
+}
+
+ul::after {
+  top: calc(var(--target-y) * 1px);
+  left: calc((var(--target-x) * 1px) + 1.25rem);
+  height: calc(var(--target-height) * 1px);
+  width: calc((var(--target-width) * 1px) - 2.5rem);
+  opacity: 1;
+  background: transparent;
+  border-radius: 0;
+  border-bottom: 2px solid currentColor;
+  view-transition-name: target;
+}
+
+/* Targeting */
+@supports (anchor-name: --a) {
+  a:target {
+    anchor-name: --target;
+  }
+  li:has(a:is(:hover, :focus-visible)) {
+    anchor-name: --anchor;
+  }
+
+  ul::before {
+    position-anchor: --anchor;
+    left: anchor(left);
+    top: anchor(top);
+    width: anchor-size(width);
+    height: anchor-size(height);
+  }
+
+  ul::after {
+    position-anchor: --target;
+    left: calc(anchor(left) + 1.25rem);
+    top: anchor(top);
+    width: calc(anchor-size(width) - 2.5rem);
+    height: anchor-size(height);
+  }
+}
+
+.landing {
+    display: flex
+    ;
+        flex-direction: column;
+        align-items: center;
+}
+
+.hero {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: "Doto", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+}
+
+.cta-button {
+    display: inline-block; /* Makes it behave like a button */
+    background-color: #6366F1; /* Button background color */
+    color: #fff; /* Button text color */
+    text-decoration: none; /* Removes underline */
+    padding: 12px 24px; /* Adjusts the button size */
+    border-radius: 25px; /* Makes the edges rounded */
+    font-weight: bold; /* Makes the text bold */
+    font-size: 1em; /* Text size */
+    transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Smooth hover effects */
+    border: 3px solid #0000;
+  background: linear-gradient(#2d2d2d, #444) padding-box, linear-gradient(
+        var(--angle),
+        #070707,
+        #0099ff
+      ) border-box;
+  animation: 8s rotate linear infinite;
+}
+
+/* Hover Effect */
+.cta-button:hover {
+    background-color: #4F46E5; /* Hover background color */
+    color: #333; /* Hover text color */
+    transform: scale(1.05); /* Slightly enlarges the button */
+}
+
+@keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
+  }
+  
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+.specs {
+    width: 100%;
+    padding: 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.specs p {
+    margin-top: 0vw;
+}
+
+.stacking {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stacking-chart {
+    width: 100%;
+}
+
+
+
+
+footer {
+    display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+        margin-top: 5vw;
+}

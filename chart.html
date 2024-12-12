@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Line Chart</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .charts-css.line {
+            --primary-color: #4F46E5;
+            --secondary-color: #6366F1;
+        }
+
+        .chart-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Line Chart</h1>
+    <div id="my-chart">
+
+        <table class="charts-css line multiple">
+            <tr>
+                <td style="--start: 0.0; --end: 0.4;"> <span class="data"> Investment </span> </td>
+                <td style="--start: 0.0; --end: 0.6;"> <span class="data"> Rewards </span> </td>
+              </tr>
+        </table>
+      
+        <ul class="charts-css legend">
+            <tr>
+                <th scope="row"> Label </th>
+                <td> Data </td>
+                <td> Data </td>
+                <td> Data </td>
+              </tr>
+        </ul>
+      
+      </div>
+</body>
+</html>
