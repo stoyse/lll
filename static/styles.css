@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 
 *,
@@ -194,8 +195,7 @@ ul::after {
 
 /* Hover Effect */
 .cta-button:hover {
-    background-color: #4F46E5; /* Hover background color */
-    color: #333; /* Hover text color */
+    color: #0099ff; /* Hover text color */
     transform: scale(1.05); /* Slightly enlarges the button */
 }
 
@@ -222,6 +222,7 @@ ul::after {
 
 .specs p {
     margin-top: 0vw;
+    font-family: "Roboto Mono", monospace;
 }
 
 .stacking {
@@ -231,11 +232,30 @@ ul::after {
     align-items: center;
 }
 
-.stacking-chart {
-    width: 100%;
+th, td {
+  border: 1px solid;
+  padding: 1.5vw;
+  font-family: "Roboto Mono", monospace;
 }
 
 
+.info {
+  display: flex;
+  justify-content: space-between;
+    width: 90%;
+}
+
+.info .left, .info .middle, .info .right {
+  background-color: #2d2d2d;
+  margin: 3vw;
+  padding: 1.5vw;
+  width: 33%;
+  display: flex
+;
+  border-radius: 1vw;
+  flex-direction: column;
+  align-items: center;
+}
 
 
 footer {
