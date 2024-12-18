@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/logo.svg">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/buy-styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+    <title>Coin</title>
+</head>
+<body>
+  <nav data-magnetic>
+    <ul>
+        <li>
+            <a href="/"><img src="static/logo.svg" style="width: 2vw;"></a>
+        </li>
+      <li>
+        <a style="view-transition-name: one" href="#home" id="home">Home</a>
+      </li>
+      <li>
+        <a style="view-transition-name: two" href="#craft" id="craft"
+          >Explore</a
+        >
+      </li>
+      <li>
+        <a style="view-transition-name: three" href="/buy.html" id="posts"
+          >Buy</a
+        >
+      </li>
+    </ul>
+    <style type="text/css"></style>
+  </nav>
+
+
+
+
+  <h1>Conversion Calculator</h1>
+  <div class="Calculator">
+  <div class="input">
+  <label for="input-number">From:</label>
+  <input type="number" id="input-number" placeholder="Enter a number" style="    background: #444;
+  color: #fff;
+  border: #f0ffff00;
+  border-radius: 1vw;
+  height: 4vw;
+  width: 29vw;
+  margin: 2vw;">
+  <button onclick="convertNumber()" style="background: #333;
+  color: #fff;
+  border-radius: 1vw;
+  height: 4vw;
+  width: 9vw;">Convert</button>
+  </div>
+  <div class="receive">
+  <div class="result" id="converted-result">To: </div>
+  <a href="#" class="cta-button">Buy Now</a>
+</div>
+</div>
+  <script>
+    function convertNumber() {
+      const inputNumber = document.getElementById('input-number').value;
+      if (inputNumber === "") {
+        alert("Please enter a number.");
+        return;
+      }
+      const convertedValue = inputNumber * 10;
+      document.getElementById('converted-result').textContent = `To: ${convertedValue} $coin`;
+    }
+  </script>
+
+</div>
+</body></html>

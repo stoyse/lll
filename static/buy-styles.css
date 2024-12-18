@@ -1,0 +1,48 @@
+.conversion {
+    width: 72%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input {
+    display: flex
+    ;
+        background: #222;
+        padding: 2vw;
+        border-radius: 1vw;
+        flex-direction: column;
+        align-items: center;
+}
+
+.Calculator {
+    width: 75%;
+    display: flex
+;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.receive {
+    background-color: #222;
+    border-radius: 1vw;
+    padding: 2vw;
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 18vw;
+    width: 25vw;
+}
+
+.inputnumber {
+    background: #222;
+    color: #fff;
+    border: #f0ffff00;
+    border-radius: 1vw;
+    height: 4vw;
+    width: 29vw;
+}
